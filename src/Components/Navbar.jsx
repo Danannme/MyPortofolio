@@ -34,7 +34,7 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
+                <a href="#about" className="flex items-center">
                     ABOUT
                 </a>
             </Typography>
@@ -72,7 +72,7 @@ export default function StickyNavbar() {
     );
 
     return (
-        <div className="sticky top-0 max-h-[768px] w-[100%]">
+        <div className="sticky top-0 max-h-[768px] w-[100%] z-10">
             <Navbar className="z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
                 <div className="flex items-center justify-between text-black">
                     <Typography
@@ -80,7 +80,7 @@ export default function StickyNavbar() {
                         href="#"
                         className="mr-4 cursor-pointer py-1.5 font-medium text-2xl"
                     >
-                        Danannme
+                        Robbi Zaidan A
                     </Typography>
                     <div className="flex items-center gap-4">
                         <div className="mr-4 hidden lg:block">{navList}</div>
