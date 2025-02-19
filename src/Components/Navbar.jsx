@@ -44,7 +44,7 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
+                <a href="#skills" className="flex items-center">
                     SKILLS
                 </a>
             </Typography>
@@ -54,7 +54,7 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
+                <a href="#portofolio" className="flex items-center">
                     PORTOFOLIO
                 </a>
             </Typography>
@@ -73,12 +73,12 @@ export default function StickyNavbar() {
 
     return (
         <div className="sticky top-0 max-h-[768px] w-[100%] z-10">
-            <Navbar className="z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
+            <Navbar className="bg-transparent border-none shadow-none h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
                 <div className="flex items-center justify-between text-black">
                     <Typography
                         as="a"
                         href="#"
-                        className="mr-4 cursor-pointer py-1.5 font-medium text-2xl"
+                        className="mr-4 cursor-pointer py-1.5 font-medium text-xl"
                     >
                         Robbi Zaidan A
                     </Typography>
