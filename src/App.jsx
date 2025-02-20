@@ -10,7 +10,11 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        window.addEventListener("load", () => setIsLoading(false));
+        if (document.readyState === "complete") {
+            setIsLoading(false);
+        } else {
+            window.addEventListener("load", () => setIsLoading(false));
+        }
         return window.removeEventListener("load", () => setIsLoading(false));
     }, []);
 

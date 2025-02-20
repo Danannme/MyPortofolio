@@ -8,7 +8,7 @@ const Home = () => {
         <div className="home grid gap-18">
             <div className="relative w-fit mx-auto mt-8">
                 <TiltedCard
-                    imageSrc="/src/assets/img/IMG-20250125-WA0074.webp"
+                    imageSrc="/public/img/IMG-20250125-WA0074.webp"
                     containerHeight="300px"
                     containerWidth="300px"
                     imageHeight="300px"

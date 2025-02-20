@@ -2,7 +2,7 @@ const About = () => {
     return (
         <div className="about w-[80%] mx-auto grid gap-2">
             <h1
-                className="title text-3xl text-center font-medium before:left-[58px] before:w-[140px]"
+                className="title text-3xl text-center font-medium before:left-[58px] before:w-[140px] scroll-mt-60"
                 id="about"
             >
                 About Me

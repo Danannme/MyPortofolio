@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import CardPorto from "../Elements/CardPorto";
-import SpotlightCard from "../Elements/SpotlightCard";
 
 import {
     Tabs,
@@ -19,27 +18,69 @@ const Portofolio = () => {
             label: "Project",
             value: "project",
             element: [
-                <CardPorto />,
-                <CardPorto />,
-                <CardPorto />,
-                <CardPorto />,
-                <CardPorto />,
-                <CardPorto />,
+                <CardPorto
+                    imgSrc={"/public/img/project image/websiteKelas10.webp"}
+                    title={"Website Kelas 10"}
+                    desc={
+                        "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya"
+                    }
+                    techs={["Html", "Css", "Javascript"]}
+                    linkTo={"https://profilex-gclass.pages.dev"}
+                    btnText={"Visit"}
+                />,
+                <CardPorto
+                    imgSrc={"/public/img/project image/websiteKelas11.webp"}
+                    title={"Website Kelas 11"}
+                    desc={
+                        "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya. Mungkin ada perbedaan teknologi yang saya pakai dibanding dengan website yang sebelumnya."
+                    }
+                    techs={[
+                        "Html",
+                        "Css",
+                        "Javascript",
+                        "Tailwind",
+                        "Bootstrap Icon",
+                    ]}
+                    linkTo={"https://thegrotesque.my.id"}
+                    btnText={"Visit"}
+                />,
+                <CardPorto
+                    imgSrc={"/public/img/project image/noteAppRaect.webp"}
+                    title={"React Note App"}
+                    desc={
+                        "Note App ini saya buat menggunakan React js dengan pemorgramman yang sederhana dimana, dan sudah menerapkan search note."
+                    }
+                    techs={["Html", "Css", "Javascript", "React Js"]}
+                    linkTo={"https://note-app-snowy-mu.vercel.app"}
+                    btnText={"Visit"}
+                />,
             ],
         },
         {
             label: "Certificate",
             value: "certificate",
-            element: [<CardPorto />, <CardPorto />, <CardPorto />],
+            element: [
+                <CardPorto
+                    imgSrc={"/public/img/project image/sertifikatReact.webp"}
+                    title={"Sertifikat React Js"}
+                    desc={
+                        "Sertifikat ini saya dapatkan setelah penyelesaikan pelatihan React Js di Dicoding."
+                    }
+                    techs={[]}
+                    linkTo={
+                        "https://drive.google.com/file/d/1gDIzgi-vzk5jGHX8qwtxXY3s3LsSlsqT/view?usp=sharing"
+                    }
+                    btnText={"See"}
+                />,
+            ],
         },
     ];
 
     return (
         <div className="portofolio grid gap-4">
             <h1
-                className="title text-3xl text-center font-medium before:left-[58px] before:w-[145px]"
-                id="portofolio\
-                "
+                className="title text-3xl text-center font-medium before:left-[58px] before:w-[145px] scroll-mt-60"
+                id="portofolio"
             >
                 Portofolio
             </h1>

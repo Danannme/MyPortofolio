@@ -9,6 +9,10 @@ import {
 export default function StickyNavbar() {
     const [openNav, setOpenNav] = useState(false);
 
+    function navIconClicked() {
+        setOpenNav(false);
+    }
+
     useEffect(() => {
         window.addEventListener(
             "resize",
@@ -24,7 +28,11 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
+                <a
+                    href="#"
+                    className="flex items-center"
+                    onClick={navIconClicked}
+                >
                     HOME
                 </a>
             </Typography>
@@ -34,7 +42,11 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#about" className="flex items-center">
+                <a
+                    href="#about"
+                    className="flex items-center"
+                    onClick={navIconClicked}
+                >
                     ABOUT
                 </a>
             </Typography>
@@ -44,7 +56,11 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#skills" className="flex items-center">
+                <a
+                    href="#skills"
+                    className="flex items-center"
+                    onClick={navIconClicked}
+                >
                     SKILLS
                 </a>
             </Typography>
@@ -54,7 +70,11 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#portofolio" className="flex items-center">
+                <a
+                    href="#portofolio"
+                    className="flex items-center"
+                    onClick={navIconClicked}
+                >
                     PORTOFOLIO
                 </a>
             </Typography>
@@ -64,7 +84,11 @@ export default function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
+                <a
+                    href="#"
+                    className="flex items-center"
+                    onClick={navIconClicked}
+                >
                     CONTACT
                 </a>
             </Typography>

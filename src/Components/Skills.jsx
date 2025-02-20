@@ -33,7 +33,7 @@ const Skills = () => {
     return (
         <div className="skills grid gap-4">
             <h1
-                className="title text-3xl text-center font-medium before:left-[24px] before:w-[70px]"
+                className="title text-3xl text-center font-medium before:left-[24px] before:w-[70px] scroll-mt-60"
                 id="skills"
             >
                 Skills
