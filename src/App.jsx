@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
-import Navbar from "./Components/Navbar.jsx";
-import Home from "./Components/Home.jsx";
-import About from "./Components/About.jsx";
-import Skills from "./Components/Skills.jsx";
-import Portofolio from "./Components/Portofolio.jsx";
-import Contact from "./Components/Contact.jsx";
-import { Footer } from "./Components/Footer.jsx";
-import "ldrs/lineWobble";
+import Navbar from "./Components/Navbar.jsx"; // navbar section
+import Home from "./Components/Home.jsx"; // Home / Hero section
+import About from "./Components/About.jsx"; // About Me section
+import Skills from "./Components/Skills.jsx"; // Skills sectoin
+import Portofolio from "./Components/Portofolio.jsx"; // Project and certificate section
+import Contact from "./Components/Contact.jsx"; // Contact / Social media sectoin
+import { Footer } from "./Components/Footer.jsx"; // Footer section
+
+import "ldrs/lineWobble"; // libary untuk animasi loading yang saya gunakan untuk membuat loading page
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +29,7 @@ function App() {
 
     return (
         <>
-            {isLoading == true ? (
+            {isLoading == true ? ( // menampilkan loading page jika website belum selesai diload
                 <div className="grid place-items-center h-screen">
                     <l-line-wobble
                         size="80"

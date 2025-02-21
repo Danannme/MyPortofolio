@@ -1,29 +1,44 @@
-import TiltedCard from "../Elements/TiltedCard";
-import CircularText from "../Elements/CircularText";
-import BlurText from "../Elements/BlurText";
-import DecryptedText from "../Elements/DecryptedText";
+// 4 import di bawah ini saya gunakan agar terdapat animasi dan interaksi kecil untuk clietn, dan library ini saya dapatkan dari website reactbitz
+import TiltedCard from "../Elements/TiltedCard"; // agar gambar utama dapat bergerak menyesuaian mouse
+import CircularText from "../Elements/CircularText"; // teks yang dapat berputar untuk hiasan di gambar utama
+import BlurText from "../Elements/BlurText"; // untu teks nama saya yang akan ngeblur saat awal loasd
+import DecryptedText from "../Elements/DecryptedText"; // description singkat saya yang akan muncul dengan animasi karakter yang berubah-ubah
 
 import { Typography, Button } from "@material-tailwind/react";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+    const [mobileScreen, setMobileScreen] = useState(true);
+
+    useEffect(() => {
+        window.addEventListener("resize", (e) => {
+            window.innerWidth >= 960 && setMobileScreen(false);
+            window.innerWidth < 960 && setMobileScreen(true);
+        });
+    }, []);
+
     return (
-        <div className="home grid gap-16">
+        <div
+            className={`home w-[90%] max-w-[1200px] mx-auto grid gap-16 lg:flex flex-row-reverse items-center ${
+                mobileScreen ? "" : "mx-18"
+            }`}
+        >
             <div className="relative w-fit mx-auto mt-8">
                 <TiltedCard
                     imageSrc="/img/IMG-20250125-WA0074.webp"
-                    containerHeight="300px"
-                    containerWidth="300px"
-                    imageHeight="300px"
-                    imageWidth="300px"
+                    containerHeight={mobileScreen ? "300px" : "460px"}
+                    containerWidth={mobileScreen ? "300px" : "460px"}
+                    imageHeight={mobileScreen ? "300px" : "460px"}
+                    imageWidth={mobileScreen ? "300px" : "460px"}
                     rotateAmplitude={12}
                     scaleOnHover={1.05}
                     showMobileWarning={false}
                     showTooltip={false}
                     displayOverlayContent={true}
                 />
-                <div className="absolute top-45">
+                <div className={`absolute top-${mobileScreen ? "45" : "75"}`}>
                     <CircularText
                         text="Front End Developer"
                         onHover="speedUp"

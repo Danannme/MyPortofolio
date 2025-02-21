@@ -5,7 +5,7 @@ export default function Contact() {
     return (
         <div className="contact grid gap-4">
             <h1
-                className="title text-3xl text-center font-medium before:left-[68px] before:w-[165px] scroll-mt-60"
+                className="title text-3xl text-center font-medium before:left-[68px] before:w-[165px] scroll-mt-60 lg:scroll-mt-14"
                 id="contact"
             >
                 Contact Me

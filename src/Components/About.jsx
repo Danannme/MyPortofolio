@@ -1,13 +1,13 @@
 const About = () => {
     return (
-        <div className="about w-[80%] mx-auto grid gap-2">
+        <div className="about w-[80%] max-w-[1000px] mx-auto grid gap-2">
             <h1
-                className="title text-3xl text-center font-medium before:left-[58px] before:w-[140px] scroll-mt-60"
+                className="title text-3xl text-center font-medium before:left-[58px] before:w-[140px] scroll-mt-60 lg:scroll-mt-14"
                 id="about"
             >
                 About Me
             </h1>
-            <p>
+            <p className="lg:text-lg">
                 Saya sekarang duduk di kelas 12 SMA, belajar{" "}
                 <span className="about-special-text border-b-2 border-gray-400">
                     Front End Develoment

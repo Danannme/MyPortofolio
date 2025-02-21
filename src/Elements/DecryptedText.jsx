@@ -218,7 +218,7 @@ export default function DecryptedText({
         >
             <span className="sr-only">{displayText}</span>
 
-            <span aria-hidden="true" className="">
+            <span aria-hidden="true" className="lg:text-lg">
                 {displayText.split("").map((char, index) => {
                     const isRevealedOrDone =
                         revealedIndices.has(index) ||
