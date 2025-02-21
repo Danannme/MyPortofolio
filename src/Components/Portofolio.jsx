@@ -19,7 +19,7 @@ const Portofolio = () => {
             value: "project",
             element: [
                 <CardPorto
-                    imgSrc={"/public/img/project image/websiteKelas10.webp"}
+                    imgSrc={"/img/project image/websiteKelas10.webp"}
                     title={"Website Kelas 10"}
                     desc={
                         "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya"
@@ -29,7 +29,7 @@ const Portofolio = () => {
                     btnText={"Visit"}
                 />,
                 <CardPorto
-                    imgSrc={"/public/img/project image/websiteKelas11.webp"}
+                    imgSrc={"/img/project image/websiteKelas11.webp"}
                     title={"Website Kelas 11"}
                     desc={
                         "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya. Mungkin ada perbedaan teknologi yang saya pakai dibanding dengan website yang sebelumnya."
@@ -45,7 +45,7 @@ const Portofolio = () => {
                     btnText={"Visit"}
                 />,
                 <CardPorto
-                    imgSrc={"/public/img/project image/noteAppRaect.webp"}
+                    imgSrc={"/img/project image/noteAppRaect.webp"}
                     title={"React Note App"}
                     desc={
                         "Note App ini saya buat menggunakan React js dengan pemorgramman yang sederhana dimana, dan sudah menerapkan search note."
@@ -61,7 +61,7 @@ const Portofolio = () => {
             value: "certificate",
             element: [
                 <CardPorto
-                    imgSrc={"/public/img/project image/sertifikatReact.webp"}
+                    imgSrc={"/img/project image/sertifikatReact.webp"}
                     title={"Sertifikat React Js"}
                     desc={
                         "Sertifikat ini saya dapatkan setelah penyelesaikan pelatihan React Js di Dicoding."
