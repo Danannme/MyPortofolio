@@ -10,13 +10,18 @@ import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-    const [mobileScreen, setMobileScreen] = useState(true);
+    const [mobileScreen, setMobileScreen] = useState(window.innerWidth < 960);
 
     useEffect(() => {
-        window.addEventListener("resize", (e) => {
-            window.innerWidth >= 960 && setMobileScreen(false);
-            window.innerWidth < 960 && setMobileScreen(true);
-        });
+        const handleResize = () => {
+            setMobileScreen(window.innerWidth < 960);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     return (
@@ -38,7 +43,9 @@ const Home = () => {
                     showTooltip={false}
                     displayOverlayContent={true}
                 />
-                <div className={`absolute top-${mobileScreen ? "45" : "75"}`}>
+                <div
+                    className={`absolute ${mobileScreen ? "top-45" : "top-75"}`}
+                >
                     <CircularText
                         text="Front End Developer"
                         onHover="speedUp"
