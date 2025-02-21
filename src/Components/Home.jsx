@@ -21,7 +21,7 @@ const Home = () => {
 
     return (
         <div
-            className={`home w-[90%] max-w-[1200px] mx-auto grid gap-16 lg:flex flex-row-reverse items-center ${
+            className={`home w-[95%] max-w-[1200px] mx-auto grid gap-16 lg:flex flex-row-reverse items-center ${
                 mobileScreen ? "" : "mx-18"
             }`}
         >
