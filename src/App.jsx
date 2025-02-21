@@ -6,6 +6,7 @@ import About from "./Components/About.jsx";
 import Skills from "./Components/Skills.jsx";
 import Portofolio from "./Components/Portofolio.jsx";
 import Contact from "./Components/Contact.jsx";
+import { Footer } from "./Components/Footer.jsx";
 import "ldrs/lineWobble";
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
                         <Skills />
                         <Portofolio />
                         <Contact />
+                        <Footer />
                     </div>
                 </>
             )}
