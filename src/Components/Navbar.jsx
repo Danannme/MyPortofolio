@@ -6,13 +6,7 @@ import {
     IconButton,
 } from "@material-tailwind/react";
 
-export default function StickyNavbar() {
-    const [openNav, setOpenNav] = useState(false);
-
-    function navIconClicked() {
-        setOpenNav(false);
-    }
-
+export default function StickyNavbar({ openNav, setOpenNav, navIconClicked }) {
     useEffect(() => {
         window.addEventListener(
             "resize",
@@ -85,7 +79,7 @@ export default function StickyNavbar() {
                 className="p-1 font-normal"
             >
                 <a
-                    href="#"
+                    href="#contact"
                     className="flex items-center"
                     onClick={navIconClicked}
                 >

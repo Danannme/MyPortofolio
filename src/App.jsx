@@ -5,9 +5,16 @@ import Home from "./Components/Home.jsx";
 import About from "./Components/About.jsx";
 import Skills from "./Components/Skills.jsx";
 import Portofolio from "./Components/Portofolio.jsx";
+import Contact from "./Components/Contact.jsx";
+import "ldrs/lineWobble";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
+    const [openNav, setOpenNav] = useState(false);
+
+    function navIconClicked() {
+        setOpenNav(false);
+    }
 
     useEffect(() => {
         if (document.readyState === "complete") {
@@ -21,16 +28,32 @@ function App() {
     return (
         <>
             {isLoading == true ? (
-                <h1>ini loading page</h1>
+                <div className="grid place-items-center h-screen">
+                    <l-line-wobble
+                        size="80"
+                        stroke="5"
+                        bg-opacity="0.1"
+                        speed="1.75"
+                        color="black"
+                    ></l-line-wobble>
+                </div>
             ) : (
                 <>
-                    <Navbar />
+                    <Navbar
+                        openNav={openNav}
+                        setOpenNav={setOpenNav}
+                        navIconClicked={navIconClicked}
+                    />
 
-                    <div className="body grid gap-12">
+                    <div
+                        className="body grid gap-12"
+                        onClick={openNav == true ? navIconClicked : ""}
+                    >
                         <Home />
                         <About />
                         <Skills />
                         <Portofolio />
+                        <Contact />
                     </div>
                 </>
             )}

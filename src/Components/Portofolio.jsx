@@ -77,7 +77,7 @@ const Portofolio = () => {
     ];
 
     return (
-        <div className="portofolio grid gap-4">
+        <div className="portofolio grid gap-4 w-full">
             <h1
                 className="title text-3xl text-center font-medium before:left-[58px] before:w-[145px] scroll-mt-60"
                 id="portofolio"
