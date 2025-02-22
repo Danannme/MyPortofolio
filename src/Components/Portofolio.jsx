@@ -22,7 +22,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/websiteKelas10.webp"}
                     title={"Website Kelas 10"}
                     desc={
-                        "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya"
+                        "Website ini saya buat ketika saya kelas 10 SMA, untuk mempublish tentang kelas saya"
                     }
                     techs={["Html", "Css", "Javascript"]}
                     linkTo={"https://profilex-gclass.pages.dev"}
@@ -32,7 +32,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/websiteKelas11.webp"}
                     title={"Website Kelas 11"}
                     desc={
-                        "Website ini saya buat ketika saya kelas 2 SMA, untuk mempublish tentang kelas saya. Mungkin ada perbedaan teknologi yang saya pakai dibanding dengan website yang sebelumnya."
+                        "Website ini saya buat ketika saya kelas 12 SMA, untuk mempublish tentang kelas saya. Mungkin ada perbedaan teknologi yang saya pakai dibanding dengan website yang sebelumnya."
                     }
                     techs={[
                         "Html",
@@ -64,7 +64,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/sertifikatReact.webp"}
                     title={"Sertifikat React Js"}
                     desc={
-                        "Sertifikat ini saya dapatkan setelah penyelesaikan pelatihan React Js di Dicoding."
+                        "Sertifikat ini saya dapatkan pada 11 Desember 2024 setelah penyelesaikan pelatihan React Js di Dicoding."
                     }
                     techs={[]}
                     linkTo={

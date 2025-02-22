@@ -3,6 +3,7 @@ import GlassIcons from "../Elements/GlassIcons";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function SosmedContact() {
     const items = [
@@ -22,8 +23,13 @@ export default function SosmedContact() {
             icon: <BiLogoGmail size={50} />,
             color: "white",
             label: "Gmail",
-            // url: "https://mail.google.com/mail/?view=cm&fs=1&to=noragamiaragotoyato92@gmail.com",
             url: "mailto:noragamiaragotoyato92@gmail.com",
+        },
+        {
+            icon: <FaWhatsapp size={50} />,
+            color: "white",
+            label: "Whatsapp",
+            url: "https://wa.me/6285156795615",
         },
     ];
 
