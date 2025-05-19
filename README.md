@@ -5,7 +5,7 @@ ini adalah website portofolio saya yang saya buat untuk menampilkan semua kehali
 -   Vite
 -   React Js
 -   Tailwind Css
--   Material UI
+-   Material Tailwind
 -   reactbitz
 -   React Hook Form
 -   Formspree
