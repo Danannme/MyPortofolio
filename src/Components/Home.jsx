@@ -67,7 +67,7 @@ const Home = () => {
                     className="text-3xl font-bold "
                 />
                 <DecryptedText
-                    text={`Saya seorang Beginner Front End Developer. Coding itu tidak sulit, hanya butuh ketelitian.`}
+                    text={`I am a Beginner Front End Developer. Coding is not difficult, it just requires precision.`}
                     animateOn="view"
                     revealDirection="start"
                     speed={25}

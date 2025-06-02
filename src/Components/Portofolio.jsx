@@ -22,7 +22,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/websiteKelas10.webp"}
                     title={"Website Kelas 10"}
                     desc={
-                        "Website ini saya buat ketika saya kelas 10 SMA, untuk mempublish tentang kelas saya"
+                        "I created this website when I was in 10th grade of high school, to publish about my class."
                     }
                     techs={["Html", "Css", "Javascript"]}
                     linkTo={"https://profilex-gclass.pages.dev"}
@@ -32,7 +32,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/websiteKelas11.webp"}
                     title={"Website Kelas 11"}
                     desc={
-                        "Website ini saya buat ketika saya kelas 12 SMA, untuk mempublish tentang kelas saya. Mungkin ada perbedaan teknologi yang saya pakai dibanding dengan website yang sebelumnya."
+                        "I created this website when I was in 11th grade of high school, to publish about my class. There are improvements in the technology I use compared to the previous website."
                     }
                     techs={[
                         "Html",
@@ -48,7 +48,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/noteAppRaect.webp"}
                     title={"React Note App"}
                     desc={
-                        "Note App ini saya buat menggunakan React js dengan pemorgramman yang sederhana dimana, dan sudah menerapkan search note."
+                        "I created this Note App using React js with simple programming, and have implemented a search note."
                     }
                     techs={["Html", "Css", "Javascript", "React Js"]}
                     linkTo={"https://note-app-snowy-mu.vercel.app"}
@@ -64,7 +64,7 @@ const Portofolio = () => {
                     imgSrc={"/img/project image/sertifikatReact.webp"}
                     title={"Sertifikat React Js"}
                     desc={
-                        "Sertifikat ini saya dapatkan pada 11 Desember 2024 setelah penyelesaikan pelatihan React Js di Dicoding."
+                        "I got this certificate on December 11, 2024 after completing the React Js training at Dicoding."
                     }
                     techs={[]}
                     linkTo={

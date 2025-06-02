@@ -3,6 +3,7 @@ import { FaCss3 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
+import { SiTypescript } from "react-icons/si";
 
 import Dock from "../Elements/Dock";
 
@@ -26,6 +27,10 @@ const items = [
     {
         icon: <RiTailwindCssFill size={24} />,
         label: "Tailwind CSS",
+    },
+    {
+        icon: <SiTypescript size={24} />,
+        label: "Typescript",
     },
 ];
 

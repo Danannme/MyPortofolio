@@ -8,15 +8,15 @@ const About = () => {
                 About Me
             </h1>
             <p className="lg:text-lg">
-                Saya sekarang duduk di kelas 12 SMA, belajar{" "}
+                I just graduated from high school, studying{" "}
                 <span className="about-special-text border-b-2 border-gray-400">
                     Front End Develoment
                 </span>{" "}
-                sejak kelas 10. Berpengalaman dengan HTML, CSS, JavaScript,
-                React.js, dan Tailwind CSS. Saya telah mengerjakan beberapa
-                proyek pribadi yang mengasah keterampilan saya dalam
-                pengembangan web. Saya selalu berusaha meningkatkan kemampuan
-                dan terbuka untuk peluang baru di dunia front-end development.
+                since 10th grade. Experienced with HTML, CSS, JavaScript,
+                React.js, and Tailwind CSS. I have worked on several personal
+                projects and collaborated with teams that honed my skills in web
+                development. I always try to improve my skills and open to new
+                opportunities in the world of front-end development.
             </p>
         </div>
     );
