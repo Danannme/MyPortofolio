@@ -3,7 +3,7 @@ import { FaCss3 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { SiTypescript, SiRedux, SiReactquery } from "react-icons/si";
+import { SiTypescript, SiRedux, SiReactquery, SiVitest } from "react-icons/si";
 
 const items = [
   {
@@ -37,6 +37,10 @@ const items = [
   {
     icon: <SiReactquery size={24} />,
     label: "Tanstack Query",
+  },
+  {
+    icon: <SiReactquery size={24} />,
+    label: "Vitest",
   },
 ];
 
