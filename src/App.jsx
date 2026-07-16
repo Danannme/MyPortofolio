@@ -48,7 +48,7 @@ function App() {
                     />
 
                     <div
-                        className="body grid gap-12"
+                        className="body flex flex-col"
                         onClick={openNav == true ? navIconClicked : ""}
                     >
                         <Home />

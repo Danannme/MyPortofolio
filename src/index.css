@@ -1,22 +1,199 @@
 @import "tailwindcss";
 
-/* * {
-    border: 2px solid red;
-} */
+:root {
+  --white-bg: #FFFFFF;
+  --black-text: #000000;
+  --wine-red: #800000;
+  --dark-grey: #333333;
+  --font-serif-display: "Playfair Display", serif;
+  --font-sans-body: "Lato", sans-serif;
+  --line-height-body: 1.7;
+  --page-turn-transition: all 0.5s ease-in-out;
+}
 
+@theme {
+  --color-winered: #800000;
+  --color-gold: #FFD700;
+  --color-darkgrey: #333333;
+  --color-beige: #F5F5DC;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Lato", sans-serif;
+}
+
+/* Base Styles */
+body {
+  background-color: #FAF8F5 !important;
+  background-image: 
+    /* Broadsheet vertical column grid lines */
+    linear-gradient(to right, rgba(128, 0, 0, 0.012) 1px, transparent 1px),
+    /* Horizontal notebook ruled lines */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.008) 1px, transparent 1px),
+    /* Fine print noise / paper dot texture */
+    radial-gradient(rgba(0, 0, 0, 0.025) 0.5px, transparent 0.5px);
+  background-size: 120px 100%, 100% 32px, 16px 16px;
+  color: var(--black-text) !important;
+  font-family: var(--font-sans-body);
+  line-height: var(--line-height-body);
+  overflow-x: hidden;
+}
+
+/* Editorial Drop Cap */
+.editorial-dropcap::first-letter {
+  font-family: var(--font-serif-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  float: left;
+  line-height: 0.9;
+  padding-right: 8px;
+  color: var(--wine-red);
+}
+
+/* Title Decoration styling */
 .title {
-    width: fit-content;
-    margin: 0 auto;
-    padding: 30px 0 8px;
-    position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 30px 0 8px;
+  position: relative;
+  font-family: var(--font-serif-display);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--black-text);
+  text-transform: uppercase;
 }
 
+/* Change highlight background from gray to editorial wine-red or gold overlay */
 .title::before {
-    content: "";
-    position: absolute;
-    bottom: 6px;
-    height: 14px;
-    transform: skew(-12deg) translateX(-50%);
-    background: rgb(153, 161, 175);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  height: 8px;
+  transform: skew(-10deg) translateX(-50%);
+  background-color: #800000; /* Wine Red accent color */
+  opacity: 0.15;
+  z-index: -1;
 }
+
+/* Custom Editorial Classes */
+.magazine-cover {
+  border: 1px solid var(--black-text);
+  padding: 1.5rem;
+  background-color: var(--white-bg);
+  position: relative;
+  transition: var(--page-turn-transition);
+}
+
+.magazine-cover::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid #FFD700; /* Gold inner frame */
+  pointer-events: none;
+}
+
+.article-layout-multilayer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .article-layout-multilayer {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.decorative-frame {
+  border: 1px solid var(--black-text);
+  padding: 8px;
+  position: relative;
+  transition: var(--page-turn-transition);
+}
+
+.decorative-frame::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--wine-red);
+  pointer-events: none;
+}
+
+/* Paper-effect background */
+.editorial-paper {
+  background-color: #FBFBFA;
+  background-image: radial-gradient(#F5F5DC 0.5px, transparent 0.5px), radial-gradient(#F5F5DC 0.5px, #FBFBFA 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* Page turn animation hover */
+.page-turn-hover {
+  transition: var(--page-turn-transition);
+}
+.page-turn-hover:hover {
+  transform: rotateY(-6deg) scale(1.02);
+  box-shadow: 10px 10px 20px rgba(128, 0, 0, 0.1);
+}
+
+/* Custom print crop marks and print borders to enrich empty spaces */
+.crop-marks {
+  position: relative;
+}
+.crop-marks::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid var(--wine-red);
+  border-left: 2px solid var(--wine-red);
+  pointer-events: none;
+  opacity: 0.7;
+}
+.crop-marks::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid var(--wine-red);
+  border-right: 2px solid var(--wine-red);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.print-proof-frame {
+  position: relative;
+}
+.print-proof-frame::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid rgba(128, 0, 0, 0.12);
+  pointer-events: none;
+}
+.print-proof-frame::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border: 1px dashed rgba(255, 215, 0, 0.25);
+  pointer-events: none;
+}
+
+

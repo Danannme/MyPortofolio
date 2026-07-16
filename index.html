@@ -2,17 +2,71 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="website ini adalah website portogolio pertama saya yang saya buat untuk memperlihatkan project yang pernah saya kerjakan"
     />
     <meta name="author" content="robbizaidan" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Robbi Zaidan Ahmad, portfolio, front-end developer, web design, culture, art, editorial" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Robbi Zaidan Ahmad - Portfólio Digital" />
+    <meta property="og:description" content="website ini adalah website portogolio pertama saya yang saya buat untuk memperlihatkan project yang pernah saya kerjakan" />
+    <meta property="og:image" content="/img/IMG-20250125-WA0074.webp" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Robbi Zaidan Ahmad - Portfólio Digital" />
+    <meta property="twitter:description" content="website ini adalah website portogolio pertama saya yang saya buat untuk memperlihatkan project yang pernah saya kerjakan" />
+    <meta property="twitter:image" content="/img/IMG-20250125-WA0074.webp" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
     <link rel="icon" href="/img/IMG-20250125-WA0074.webp" />
-    <title>Robbi Zaidan A</title>
+    <title>Robbi Zaidan A - Portfólio</title>
+
+    <style>
+      /* Magazine Page Turn transition and general editorial helpers */
+      body {
+        background-color: #FAF8F5 !important;
+        background-image: 
+          /* Broadsheet vertical column grid lines */
+          linear-gradient(to right, rgba(128, 0, 0, 0.012) 1px, transparent 1px),
+          /* Horizontal notebook ruled lines */
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.008) 1px, transparent 1px),
+          /* Fine print noise / paper dot texture */
+          radial-gradient(rgba(0, 0, 0, 0.025) 0.5px, transparent 0.5px);
+        background-size: 120px 100%, 100% 32px, 16px 16px;
+        color: #000000 !important;
+        font-family: "Lato", sans-serif;
+        line-height: 1.7;
+      }
+      .font-editorial-serif {
+        font-family: "Playfair Display", serif;
+      }
+      .font-editorial-sans {
+        font-family: "Lato", sans-serif;
+      }
+      /* Page-turn animations */
+      .page-turn-enter {
+        transform: rotateY(-15deg);
+        transform-origin: left center;
+        opacity: 0;
+      }
+      .page-turn-active {
+        transform: rotateY(0deg);
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
+    </style>
   </head>
-  <body class="bg-white">
-    <div id="root" class=""></div>
+  <body class="bg-white text-black antialiased selection:bg-red-800 selection:text-white">
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

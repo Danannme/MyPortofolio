@@ -38,88 +38,74 @@ export default function FormContact() {
     };
 
     return (
-        <div className="relative flex flex-col rounded-xl bg-transparent">
-            <h4 className="block self-center text-xl font-medium text-slate-800">
+        <div className="relative flex flex-col border border-black/80 bg-white p-6 md:p-8 rounded-none w-80 sm:w-96 crop-marks print-proof-frame">
+            {/* Top gold design line accent */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
+            
+            <h4 className="block self-center text-xl font-serif font-black uppercase tracking-widest text-black mb-4">
                 Get In Touch!
             </h4>
             {isSuccess == true ? (
-                <Alert color="green" onClose={() => setIsSuccess(null)}>
+                <Alert color="green" className="rounded-none font-sans font-bold text-xs tracking-wider" onClose={() => setIsSuccess(null)}>
                     Message sent successfully
                 </Alert>
             ) : isSuccess == false ? (
-                <Alert color="red" onClose={() => setIsSuccess(null)}>
+                <Alert color="red" className="rounded-none font-sans font-bold text-xs tracking-wider" onClose={() => setIsSuccess(null)}>
                     Message failed to send
                 </Alert>
             ) : (
                 <></>
             )}
             <form
-                className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96"
+                className="mt-2 mb-2 w-full"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <div className="mb-5 flex flex-col gap-3">
-                    <div class="w-full max-w-sm min-w-[200px]">
-                        <label className="block mb-0 text-sm text-slate-600">
+                <div className="mb-6 flex flex-col gap-4">
+                    <div className="w-full">
+                        <label className="block text-xs font-sans font-bold tracking-widest uppercase text-black mb-1.5">
                             Name
                         </label>
                         <input
-                            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            labelProps={{
-                                className:
-                                    "before:content-none after:content-none",
-                            }}
+                            className="w-full bg-beige/10 placeholder:text-slate-400 text-black font-sans text-sm border border-black/80 rounded-none px-3.5 py-2.5 transition duration-300 ease focus:outline-none focus:border-winered hover:border-winered"
                             type="text"
                             {...register("name", { required: true })}
                         />
                     </div>
 
-                    <div class="w-full max-w-sm min-w-[200px]">
-                        <label className="block text-sm text-slate-600">
+                    <div className="w-full">
+                        <label className="block text-xs font-sans font-bold tracking-widest uppercase text-black mb-1.5">
                             Email
                         </label>
                         <input
-                            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            labelProps={{
-                                className:
-                                    "before:content-none after:content-none",
-                            }}
+                            className="w-full bg-beige/10 placeholder:text-slate-400 text-black font-sans text-sm border border-black/80 rounded-none px-3.5 py-2.5 transition duration-300 ease focus:outline-none focus:border-winered hover:border-winered"
                             type="email"
                             {...register("email", { required: true })}
                         />
                     </div>
 
-                    <div class="w-full max-w-sm min-w-[200px]">
-                        <label className="block text-sm text-slate-600">
+                    <div className="w-full">
+                        <label className="block text-xs font-sans font-bold tracking-widest uppercase text-black mb-1.5">
                             Subject
                         </label>
                         <input
-                            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            labelProps={{
-                                className:
-                                    "before:content-none after:content-none",
-                            }}
+                            className="w-full bg-beige/10 placeholder:text-slate-400 text-black font-sans text-sm border border-black/80 rounded-none px-3.5 py-2.5 transition duration-300 ease focus:outline-none focus:border-winered hover:border-winered"
                             type="text"
                             {...register("_subject", { required: true })}
                         />
                     </div>
 
-                    <div class="w-full max-w-sm min-w-[200px]">
-                        <label className="block text-sm text-slate-600">
+                    <div className="w-full">
+                        <label className="block text-xs font-sans font-bold tracking-widest uppercase text-black mb-1.5">
                             Message
                         </label>
-                        <input
-                            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                            labelProps={{
-                                className:
-                                    "before:content-none after:content-none",
-                            }}
-                            type="text"
+                        <textarea
+                            className="w-full min-h-[80px] bg-beige/10 placeholder:text-slate-400 text-black font-sans text-sm border border-black/80 rounded-none px-3.5 py-2.5 transition duration-300 ease focus:outline-none focus:border-winered hover:border-winered"
                             {...register("message", { required: true })}
                         />
                     </div>
                 </div>
                 <Button
-                    class="w-full rounded-md bg-black py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md focus:bg-slate-700 focus:shadow-none active:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none cursor-pointer!"
+                    className="w-full rounded-none bg-winered hover:bg-black text-white hover:text-gold border border-transparent hover:border-gold py-3.5 px-4 text-center font-sans text-xs tracking-widest font-bold uppercase transition-all duration-500 shadow-none hover:shadow-md cursor-pointer flex justify-center items-center"
                     type="submit"
                     fullWidth
                     loading={isLoading == true ? true : false}

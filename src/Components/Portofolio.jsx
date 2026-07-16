@@ -91,28 +91,45 @@ const Portofolio = () => {
   ];
 
   return (
-    <div className="portofolio grid gap-4 w-full">
-      <h1
-        className="title text-3xl text-center font-medium before:left-[58px] before:w-[145px] scroll-mt-60 lg:scroll-mt-14"
-        id="portofolio"
-      >
-        Portofolio
-      </h1>
-      <div className="porto-body w-full max-w-[80rem] mx-auto">
-        <Tabs value="project">
-          <TabsHeader className="bg-gray-300 w-55 max-w-[400px] h-10 mx-auto z-0">
+    <div className="w-full bg-[#FAF6F0]/50 border-y border-black/5 py-16 relative overflow-hidden my-4">
+      {/* Background watermark text */}
+      <div className="absolute -left-8 -bottom-10 font-serif text-[14rem] font-black text-black/[0.012] select-none pointer-events-none leading-none">
+        WORK
+      </div>
+      <div className="portofolio grid gap-6 w-full relative z-1">
+        <h1
+          className="title text-4xl text-center font-serif font-black tracking-wide scroll-mt-60 lg:scroll-mt-14"
+          id="portofolio"
+        >
+          Portofolio
+        </h1>
+        <div className="porto-body w-full max-w-[80rem] mx-auto px-4">
+          <Tabs value="project">
+          <TabsHeader
+            className="bg-transparent border border-black w-64 max-w-[350px] h-11 mx-auto rounded-none p-0.5 z-0"
+            indicatorProps={{
+              className: "bg-winered rounded-none shadow-none",
+            }}
+          >
             {data.map(({ label, value }) => (
-              <Tab key={value} value={value}>
+              <Tab
+                key={value}
+                value={value}
+                className={`font-sans text-xs font-bold tracking-widest uppercase cursor-pointer transition-all duration-300 ${
+                  isActive === value ? "text-white" : "text-black hover:text-winered"
+                }`}
+                onClick={() => setIsActive(value)}
+              >
                 {label}
               </Tab>
             ))}
           </TabsHeader>
-          <TabsBody>
+          <TabsBody className="mt-8">
             {data.map(({ value, element }) => (
               <TabPanel
                 key={value}
                 value={value}
-                className="flex flex-wrap justify-center mx-auto gap-4"
+                className="flex flex-wrap justify-center mx-auto gap-8 p-0"
               >
                 {element}
               </TabPanel>
@@ -121,6 +138,7 @@ const Portofolio = () => {
         </Tabs>
       </div>
     </div>
+  </div>
   );
 };
 
