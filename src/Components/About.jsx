@@ -15,7 +15,7 @@ const About = () => {
         <p className="editorial-dropcap font-sans text-base lg:text-lg text-darkgrey leading-loose text-justify md:px-8">
           Studying{" "}
           <span className="about-special-text border-b-2 border-winered text-black font-semibold bg-gold/10 px-1">
-            Front End Develoment
+            Website Development
           </span>{" "}
           since 10th grade. Experienced with HTML, CSS, JavaScript, React.js,
           and Tailwind CSS. I have worked on several personal projects and
