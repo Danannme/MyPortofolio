@@ -39,7 +39,7 @@ const items = [
     label: "Tanstack Query",
   },
   {
-    icon: <SiReactquery size={24} />,
+    icon: <SiVitest size={24} />,
     label: "Vitest",
   },
 ];
@@ -66,8 +66,12 @@ const Skills = () => {
             >
               {/* Top gold line indicator on hover */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-              <div className="text-3xl mb-3 text-winered group-hover:scale-110 transition-transform duration-500">{skill.icon}</div>
-              <h3 className="text-sm font-sans font-bold tracking-widest uppercase text-black group-hover:text-winered transition-colors duration-500">{skill.label}</h3>
+              <div className="text-3xl mb-3 text-winered group-hover:scale-110 transition-transform duration-500">
+                {skill.icon}
+              </div>
+              <h3 className="text-sm font-sans font-bold tracking-widest uppercase text-black group-hover:text-winered transition-colors duration-500">
+                {skill.label}
+              </h3>
             </div>
           ))}
         </div>
