@@ -8,24 +8,24 @@ const GROUPS = [
   {
     title: "Languages",
     items: [
-      { icon: FaHtml5, label: "HTML", level: "Menengah" },
-      { icon: FaCss3Alt, label: "CSS", level: "Menengah" },
-      { icon: IoLogoJavascript, label: "JavaScript", level: "Menengah" },
-      { icon: SiTypescript, label: "TypeScript", level: "Dasar" },
+      { icon: FaHtml5, label: "HTML", level: "Intermediate" },
+      { icon: FaCss3Alt, label: "CSS", level: "Intermediate" },
+      { icon: IoLogoJavascript, label: "JavaScript", level: "Intermediate" },
+      { icon: SiTypescript, label: "TypeScript", level: "Basic" },
     ],
   },
   {
     title: "Frameworks & Libraries",
     items: [
-      { icon: FaReact, label: "React", level: "Menengah" },
-      { icon: RiTailwindCssFill, label: "Tailwind CSS", level: "Menengah" },
-      { icon: SiRedux, label: "Redux Toolkit", level: "Dasar" },
-      { icon: SiReactquery, label: "TanStack Query", level: "Dasar" },
+      { icon: FaReact, label: "React", level: "Intermediate" },
+      { icon: RiTailwindCssFill, label: "Tailwind CSS", level: "Intermediate" },
+      { icon: SiRedux, label: "Redux Toolkit", level: "Basic" },
+      { icon: SiReactquery, label: "TanStack Query", level: "Basic" },
     ],
   },
   {
     title: "Tools & Testing",
-    items: [{ icon: SiVitest, label: "Vitest", level: "Dasar" }],
+    items: [{ icon: SiVitest, label: "Vitest", level: "Basic" }],
   },
 ];
 
@@ -41,7 +41,7 @@ const Skills = () => {
           <Reveal className="col-span-12 md:col-span-3">
             <p className="label label-accent mb-2">02 / Skills</p>
             <h2 id="skills-title" className="section-title text-fg">
-              Keahlian
+              Skills
             </h2>
           </Reveal>
 

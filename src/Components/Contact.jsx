@@ -14,11 +14,11 @@ export default function Contact() {
           <Reveal className="col-span-12 md:col-span-3">
             <p className="label label-accent mb-2">04 / Contact</p>
             <h2 id="contact-title" className="section-title text-fg">
-              Hubungi
+              Contact
             </h2>
             <p className="mt-4 max-w-[30ch] text-sm leading-relaxed text-muted">
-              Terbuka untuk kerja sama project, magang, atau sekadar berdiskusi
-              soal front-end.
+              Open to project work, internships, or just a conversation about
+              front-end.
             </p>
           </Reveal>
 
@@ -27,7 +27,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.12} className="col-span-12 md:col-span-4">
-            <p className="label mb-4">Lainnya</p>
+            <p className="label mb-4">Elsewhere</p>
             <SosmedContact />
           </Reveal>
         </div>

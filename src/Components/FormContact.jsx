@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const FIELDS = [
-  { name: "name", label: "Nama", type: "text", autoComplete: "name" },
+  { name: "name", label: "Name", type: "text", autoComplete: "name" },
   { name: "email", label: "Email", type: "email", autoComplete: "email" },
-  { name: "_subject", label: "Subjek", type: "text", autoComplete: "off" },
+  { name: "_subject", label: "Subject", type: "text", autoComplete: "off" },
 ];
 
 export default function FormContact() {
@@ -41,10 +41,7 @@ export default function FormContact() {
       <div className="flex flex-col gap-6">
         {FIELDS.map((field) => (
           <div key={field.name}>
-            <label
-              htmlFor={field.name}
-              className="label mb-2 block text-fg"
-            >
+            <label htmlFor={field.name} className="label mb-2 block text-fg">
               {field.label}
             </label>
             <input
@@ -60,7 +57,7 @@ export default function FormContact() {
             />
             {errors[field.name] && (
               <p id={`${field.name}-error`} className="label mt-2 text-accent">
-                Wajib diisi
+                Required
               </p>
             )}
           </div>
@@ -68,7 +65,7 @@ export default function FormContact() {
 
         <div>
           <label htmlFor="message" className="label mb-2 block text-fg">
-            Pesan
+            Message
           </label>
           <textarea
             id="message"
@@ -80,7 +77,7 @@ export default function FormContact() {
           />
           {errors.message && (
             <p id="message-error" className="label mt-2 text-accent">
-              Wajib diisi
+              Required
             </p>
           )}
         </div>
@@ -92,16 +89,16 @@ export default function FormContact() {
           disabled={isLoading}
           className="inline-flex min-h-[48px] items-center justify-center bg-fg px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isLoading ? "Mengirim…" : "Kirim Pesan"}
+          {isLoading ? "Sending…" : "Send Message"}
         </button>
 
         <p role="status" aria-live="polite" className="label">
           {status === "success" && (
-            <span className="text-fg">Pesan terkirim. Terima kasih.</span>
+            <span className="text-fg">Message sent. Thank you.</span>
           )}
           {status === "error" && (
             <span className="text-accent">
-              Gagal mengirim. Coba lagi atau email langsung.
+              Failed to send. Try again or email me directly.
             </span>
           )}
         </p>

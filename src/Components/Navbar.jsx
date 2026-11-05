@@ -42,12 +42,12 @@ export default function Navbar() {
           href="#home"
           onClick={() => setOpen(false)}
           className="font-display text-base font-bold tracking-[0.12em] text-fg"
-          aria-label="RZA — kembali ke atas"
+          aria-label="RZA — back to top"
         >
           RZA
         </a>
 
-        <nav aria-label="Navigasi utama" className="hidden lg:block">
+        <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {LINKS.map((link) => {
               const isActive = active === link.id;
@@ -79,7 +79,7 @@ export default function Navbar() {
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          aria-label={open ? "Tutup menu" : "Buka menu"}
+          aria-label={open ? "Close menu" : "Open menu"}
           className="flex h-11 w-11 items-center justify-center text-fg lg:hidden"
         >
           <span className="relative block h-4 w-6" aria-hidden="true">
@@ -112,7 +112,7 @@ export default function Navbar() {
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             className="border-t border-hairline bg-bg lg:hidden"
           >
-            <nav aria-label="Navigasi seluler" className="shell py-4">
+            <nav aria-label="Mobile navigation" className="shell py-4">
               <ul className="flex flex-col">
                 {LINKS.map((link, index) => (
                   <li

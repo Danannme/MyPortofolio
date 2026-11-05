@@ -12,26 +12,26 @@ const About = () => {
           <Reveal className="col-span-12 md:col-span-3">
             <p className="label label-accent mb-2">01 / About</p>
             <h2 id="about-title" className="section-title text-fg">
-              Tentang
+              About
             </h2>
           </Reveal>
 
           <Reveal delay={0.08} className="col-span-12 md:col-span-9">
             <p className="max-w-[62ch] text-[clamp(1.0625rem,1.6vw,1.375rem)] leading-relaxed text-fg">
-              Saya mulai belajar{" "}
+              I started learning{" "}
               <span className="font-medium underline decoration-accent decoration-2 underline-offset-4">
-                pengembangan website
+                web development
               </span>{" "}
-              sejak kelas 10 SMA. Sejak itu saya mengerjakan beberapa project
-              pribadi dan ikut berkolaborasi dalam tim, mulai dari website
-              profil kelas sampai landing page produk.
+              in the 10th grade. Since then I have built a number of personal
+              projects and worked with teams, from class profile sites to product
+              landing pages.
             </p>
 
             <p className="mt-6 max-w-[62ch] text-base leading-relaxed text-muted">
-              Keseharian saya sekarang berputar di HTML, CSS, JavaScript,
-              React, dan Tailwind CSS — dengan fokus pada tampilan yang
-              konsisten, aksesibel, dan cepat. Saya masih terus belajar, dan
-              terbuka untuk kesempatan baru di dunia front-end development.
+              My day-to-day work revolves around HTML, CSS, JavaScript, React,
+              and Tailwind CSS, with a focus on interfaces that stay consistent,
+              accessible, and fast. I am still learning, and open to new
+              opportunities in front-end development.
             </p>
           </Reveal>
         </div>

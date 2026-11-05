@@ -9,45 +9,45 @@ const EASE = [0.22, 1, 0.36, 1];
 const PROJECTS = [
   {
     imgSrc: "/img/project image/websiteKelas10.webp",
-    imgAlt: "Tampilan beranda Website Kelas 10 dengan foto kelas",
-    title: "Website Kelas 10",
-    desc: "Website profil kelas yang saya buat di kelas 10 SMA untuk membagikan informasi kelas.",
+    imgAlt: "Homepage of the 10th grade class website showing a class photo",
+    title: "Class Website — Grade 10",
+    desc: "A class profile site I built in 10th grade to share information about my class.",
     techs: ["HTML", "CSS", "JavaScript"],
     meta: "2022 — Personal",
     linkTo: "https://profilex-gclass.pages.dev",
   },
   {
     imgSrc: "/img/project image/websiteKelas11.webp",
-    imgAlt: "Tampilan beranda Website Kelas 11 dengan navigasi hijau tosca",
-    title: "Website Kelas 11",
-    desc: "Versi lanjutan dari website kelas sebelumnya, dengan struktur dan teknologi yang lebih rapi.",
+    imgAlt: "Homepage of the 11th grade class website with a teal navigation bar",
+    title: "Class Website — Grade 11",
+    desc: "A follow-up to the previous class site, with a tidier structure and a newer stack.",
     techs: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap Icons"],
     meta: "2023 — Personal",
     linkTo: "https://thegrotesque.my.id",
   },
   {
     imgSrc: "/img/project image/noteAppRaect.webp",
-    imgAlt: "Tampilan aplikasi catatan React dengan daftar note",
+    imgAlt: "React note-taking app showing a list of saved notes",
     title: "React Note App",
-    desc: "Aplikasi catatan sederhana dengan React, dilengkapi fitur pencarian note.",
+    desc: "A simple note-taking app built with React, including a search feature.",
     techs: ["React", "JavaScript", "CSS"],
     meta: "2024 — Personal",
     linkTo: "https://note-app-snowy-mu.vercel.app",
   },
   {
     imgSrc: "/img/project image/websiteTemplate-travelo.webp",
-    imgAlt: "Landing page Travelo dengan headline Lifelong Memories Just A Few Days Away",
+    imgAlt: "Travelo landing page with the headline Lifelong Memories Just A Few Days Away",
     title: "Travelo",
-    desc: "Template landing page agen travel dengan layout hero besar dan bagian destinasi.",
+    desc: "A travel agency landing page template with a large hero and a destinations section.",
     techs: ["React", "Tailwind CSS", "DaisyUI"],
     meta: "2024 — Template",
     linkTo: "https://travelo-day.vercel.app",
   },
   {
     imgSrc: "/img/project image/websiteTemplate-wnc.webp",
-    imgAlt: "Landing page WebNCraft dengan headline Where Vision Meets Digital Perfection",
+    imgAlt: "WebNCraft landing page with the headline Where Vision Meets Digital Perfection",
     title: "WebNCraft",
-    desc: "Landing page agensi pembuat website, lengkap dengan animasi masuk dan komponen shadcn.",
+    desc: "A landing page for a web agency, with entrance animations and shadcn components.",
     techs: ["React", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
     meta: "2025 — Template",
     linkTo: "https://webncraft-portfolio.vercel.app/",
@@ -57,20 +57,20 @@ const PROJECTS = [
 const CERTIFICATES = [
   {
     imgSrc: "/img/project image/sertifikatReact.webp",
-    imgAlt: "Sertifikat kelulusan kelas React dari Dicoding",
-    title: "Sertifikat React",
-    desc: "Sertifikat kelulusan kelas React yang diterbitkan Dicoding pada 11 Desember 2024.",
+    imgAlt: "React course completion certificate issued by Dicoding",
+    title: "React Certificate",
+    desc: "Course completion certificate issued by Dicoding on 11 December 2024.",
     techs: [],
-    meta: "Des 2024 — Dicoding",
+    meta: "Dec 2024 — Dicoding",
     linkTo:
       "https://drive.google.com/file/d/1gDIzgi-vzk5jGHX8qwtxXY3s3LsSlsqT/view?usp=sharing",
-    ctaLabel: "Lihat",
+    ctaLabel: "View",
   },
 ];
 
 const TABS = [
-  { id: "project", label: "Project", items: PROJECTS },
-  { id: "certificate", label: "Certificate", items: CERTIFICATES },
+  { id: "project", label: "Projects", items: PROJECTS },
+  { id: "certificate", label: "Certificates", items: CERTIFICATES },
 ];
 
 export default function Portfolio() {
@@ -89,7 +89,7 @@ export default function Portfolio() {
           <Reveal className="col-span-12 md:col-span-6">
             <p className="label label-accent mb-2">03 / Portfolio</p>
             <h2 id="portfolio-title" className="section-title text-fg">
-              Karya Terpilih
+              Selected Work
             </h2>
           </Reveal>
 
@@ -97,7 +97,7 @@ export default function Portfolio() {
             delay={0.06}
             className="col-span-12 flex gap-8 md:col-span-6 md:justify-end"
           >
-            <div role="tablist" aria-label="Kategori karya" className="flex gap-8">
+            <div role="tablist" aria-label="Work category" className="flex gap-8">
               {TABS.map((tab) => {
                 const isActive = tab.id === activeTab;
                 return (

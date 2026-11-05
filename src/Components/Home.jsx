@@ -29,7 +29,7 @@ const Home = () => {
             className="label label-accent mb-6 flex items-center gap-2"
           >
             <IoLocationOutline size={14} aria-hidden="true" />
-            Front-End Developer — Jawa Timur, ID
+            Front-End Developer — East Java, ID
           </motion.p>
 
           <motion.h1
@@ -42,11 +42,11 @@ const Home = () => {
 
           <motion.p
             {...fade(0.12)}
-            className="mt-6 max-w-[48ch] text-[clamp(1rem,1.4vw,1.125rem)] leading-relaxed text-muted"
+            className="mt-6 max-w-[54ch] text-[clamp(1rem,1.4vw,1.125rem)] leading-relaxed text-muted"
           >
-            Saya membangun antarmuka web yang rapi dan cepat dengan React,
-            JavaScript, dan Tailwind CSS. Menulis kode bukan soal sulit — soal
-            presisi.
+            I build clean, fast web interfaces with React, JavaScript, and
+            Tailwind CSS. Writing code is not about difficulty — it is about
+            precision.
           </motion.p>
 
           <motion.div
@@ -57,7 +57,7 @@ const Home = () => {
               href="#portfolio"
               className="group inline-flex min-h-[48px] items-center gap-2 bg-fg px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent"
             >
-              Lihat Karya
+              View Work
               <MdOutlineArrowRightAlt
                 size={20}
                 aria-hidden="true"
@@ -68,7 +68,7 @@ const Home = () => {
               href="#contact"
               className="link-underline border-b border-fg/30 pb-0.5 text-sm font-medium text-fg"
             >
-              Hubungi Saya
+              Get in Touch
             </a>
           </motion.div>
         </div>
@@ -87,14 +87,14 @@ const Home = () => {
             <div className="overflow-hidden">
               <img
                 src="/img/IMG-20250125-WA0074.webp"
-                alt="Robbi Zaidan Ahmad duduk di depan dinding bata"
+                alt="Robbi Zaidan Ahmad seated in front of a brick wall"
                 width="880"
                 height="880"
                 className="aspect-square w-full object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0 group-focus-within:grayscale-0"
               />
             </div>
             <p className="label absolute -bottom-3 left-4 bg-bg px-2">
-              Foto — 2025
+              Photo — 2025
             </p>
           </div>
         </motion.div>
