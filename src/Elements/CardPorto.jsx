@@ -8,7 +8,7 @@ export default function CardPorto({
   techs = [],
   meta,
   linkTo,
-  ctaLabel = "Kunjungi",
+  ctaLabel = "Visit",
 }) {
   const visibleTechs = techs.slice(0, 4);
   const overflow = techs.length - visibleTechs.length;
