@@ -1,79 +1,80 @@
-import { FaHtml5 } from "react-icons/fa";
-import { FaCss3 } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiTypescript, SiRedux, SiReactquery, SiVitest } from "react-icons/si";
+import Reveal from "../Elements/Reveal";
 
-const items = [
+const GROUPS = [
   {
-    icon: <FaHtml5 size={24} />,
-    label: "HTML",
+    title: "Languages",
+    items: [
+      { icon: FaHtml5, label: "HTML", level: "Menengah" },
+      { icon: FaCss3Alt, label: "CSS", level: "Menengah" },
+      { icon: IoLogoJavascript, label: "JavaScript", level: "Menengah" },
+      { icon: SiTypescript, label: "TypeScript", level: "Dasar" },
+    ],
   },
   {
-    icon: <FaCss3 size={24} />,
-    label: "CSS",
+    title: "Frameworks & Libraries",
+    items: [
+      { icon: FaReact, label: "React", level: "Menengah" },
+      { icon: RiTailwindCssFill, label: "Tailwind CSS", level: "Menengah" },
+      { icon: SiRedux, label: "Redux Toolkit", level: "Dasar" },
+      { icon: SiReactquery, label: "TanStack Query", level: "Dasar" },
+    ],
   },
   {
-    icon: <IoLogoJavascript size={24} />,
-    label: "Javascript",
-  },
-  {
-    icon: <FaReact size={24} />,
-    label: "React Js",
-  },
-  {
-    icon: <RiTailwindCssFill size={24} />,
-    label: "Tailwind CSS",
-  },
-  {
-    icon: <SiTypescript size={24} />,
-    label: "Typescript",
-  },
-  {
-    icon: <SiRedux size={24} />,
-    label: "Beginner Redux Tool Kit",
-  },
-  {
-    icon: <SiReactquery size={24} />,
-    label: "Tanstack Query",
-  },
-  {
-    icon: <SiVitest size={24} />,
-    label: "Vitest",
+    title: "Tools & Testing",
+    items: [{ icon: SiVitest, label: "Vitest", level: "Dasar" }],
   },
 ];
 
 const Skills = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-8 relative overflow-hidden">
-      {/* Background watermark text */}
-      <div className="absolute -right-6 -bottom-10 font-serif text-[14rem] font-black text-black/[0.015] select-none pointer-events-none leading-none">
-        DEV
-      </div>
-      <div className="max-w-5xl mx-auto relative z-1">
-        <h1
-          className="title text-4xl text-center font-serif font-black tracking-wide scroll-mt-60 lg:scroll-mt-14"
-          id="skills"
-        >
-          Skills
-        </h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-          {items.map((skill) => (
-            <div
-              key={skill.label}
-              className="group rounded-none border border-black/80 p-5 bg-white hover:bg-beige/40 hover:border-winered transition-all duration-500 cursor-pointer relative"
-            >
-              {/* Top gold line indicator on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-              <div className="text-3xl mb-3 text-winered group-hover:scale-110 transition-transform duration-500">
-                {skill.icon}
-              </div>
-              <h3 className="text-sm font-sans font-bold tracking-widest uppercase text-black group-hover:text-winered transition-colors duration-500">
-                {skill.label}
-              </h3>
-            </div>
-          ))}
+    <section
+      id="skills"
+      aria-labelledby="skills-title"
+      className="shell py-20 lg:py-28"
+    >
+      <div className="rule pt-8">
+        <div className="grid-12">
+          <Reveal className="col-span-12 md:col-span-3">
+            <p className="label label-accent mb-2">02 / Skills</p>
+            <h2 id="skills-title" className="section-title text-fg">
+              Keahlian
+            </h2>
+          </Reveal>
+
+          <div className="col-span-12 md:col-span-9">
+            {GROUPS.map((group, groupIndex) => (
+              <Reveal
+                key={group.title}
+                delay={groupIndex * 0.06}
+                className="grid gap-4 border-t border-hairline py-6 first:border-t-0 first:pt-0 md:grid-cols-12"
+              >
+                <p className="label md:col-span-4">{group.title}</p>
+
+                <ul className="flex flex-col md:col-span-8">
+                  {group.items.map(({ icon: Icon, label, level }) => (
+                    <li
+                      key={label}
+                      className="group flex items-center gap-4 border-b border-hairline py-3 last:border-0"
+                    >
+                      <Icon
+                        size={20}
+                        aria-hidden="true"
+                        className="shrink-0 text-muted transition-colors duration-200 group-hover:text-accent"
+                      />
+                      <span className="flex-1 text-base font-medium text-fg">
+                        {label}
+                      </span>
+                      <span className="label">{level}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

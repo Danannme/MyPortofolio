@@ -1,30 +1,42 @@
+import Reveal from "../Elements/Reveal";
+
 const About = () => {
   return (
-    <div className="w-full bg-[#FAF6F0] border-y border-black/10 py-16 my-4 relative overflow-hidden">
-      {/* Background watermark text */}
-      <div className="absolute -left-10 -bottom-8 font-serif text-[12rem] font-black text-black/[0.015] select-none pointer-events-none leading-none">
-        ART
+    <section
+      id="about"
+      aria-labelledby="about-title"
+      className="shell py-20 lg:py-28"
+    >
+      <div className="rule pt-8">
+        <div className="grid-12">
+          <Reveal className="col-span-12 md:col-span-3">
+            <p className="label label-accent mb-2">01 / About</p>
+            <h2 id="about-title" className="section-title text-fg">
+              Tentang
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.08} className="col-span-12 md:col-span-9">
+            <p className="max-w-[62ch] text-[clamp(1.0625rem,1.6vw,1.375rem)] leading-relaxed text-fg">
+              Saya mulai belajar{" "}
+              <span className="font-medium underline decoration-accent decoration-2 underline-offset-4">
+                pengembangan website
+              </span>{" "}
+              sejak kelas 10 SMA. Sejak itu saya mengerjakan beberapa project
+              pribadi dan ikut berkolaborasi dalam tim, mulai dari website
+              profil kelas sampai landing page produk.
+            </p>
+
+            <p className="mt-6 max-w-[62ch] text-base leading-relaxed text-muted">
+              Keseharian saya sekarang berputar di HTML, CSS, JavaScript,
+              React, dan Tailwind CSS — dengan fokus pada tampilan yang
+              konsisten, aksesibel, dan cepat. Saya masih terus belajar, dan
+              terbuka untuk kesempatan baru di dunia front-end development.
+            </p>
+          </Reveal>
+        </div>
       </div>
-      <div className="about w-[85%] max-w-[800px] mx-auto relative z-1 p-8 bg-white border border-black/10 print-proof-frame crop-marks shadow-sm">
-        <h1
-          className="title text-4xl text-center font-serif font-black tracking-wide mb-8 scroll-mt-60 lg:scroll-mt-14"
-          id="about"
-        >
-          About Me
-        </h1>
-        <p className="editorial-dropcap font-sans text-base lg:text-lg text-darkgrey leading-loose text-justify md:px-8">
-          Studying{" "}
-          <span className="about-special-text border-b-2 border-winered text-black font-semibold bg-gold/10 px-1">
-            Website Development
-          </span>{" "}
-          since 10th grade. Experienced with HTML, CSS, JavaScript, React.js,
-          and Tailwind CSS. I have worked on several personal projects and
-          collaborated with teams that honed my skills in web development. I
-          always try to improve my skills and open to new opportunities in the
-          world of front-end development.
-        </p>
-      </div>
-    </div>
+    </section>
   );
 };
 

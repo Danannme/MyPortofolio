@@ -1,80 +1,70 @@
-import GlassIcons from "../Elements/GlassIcons";
-
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
-import { FaWhatsapp } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
+
+const ITEMS = [
+  {
+    icon: FaGithub,
+    label: "GitHub",
+    value: "@Danannme",
+    url: "https://www.github.com/Danannme",
+  },
+  {
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    value: "robbi-zaidan-ahmad",
+    url: "https://www.linkedin.com/in/robbi-zaidan-ahmad-b0b593300/",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    value: "@danannme",
+    url: "https://www.instagram.com/danannme",
+  },
+  {
+    icon: FaWhatsapp,
+    label: "WhatsApp",
+    value: "+62 851-5679-5615",
+    url: "https://wa.me/6285156795615",
+  },
+  {
+    icon: BiLogoGmail,
+    label: "Email",
+    value: "noragamiaragotoyato92@gmail.com",
+    url: "mailto:noragamiaragotoyato92@gmail.com",
+  },
+];
 
 export default function SosmedContact() {
-  const items = [
-    {
-      icon: (
-        <FaGithub
-          size={28}
-          className="text-black group-hover:text-winered transition-colors duration-300"
-        />
-      ),
-      color: "white",
-      label: "Github",
-      url: "https://www.github.com/Danannme",
-    },
-    {
-      icon: (
-        <FaInstagram
-          size={28}
-          className="text-black group-hover:text-winered transition-colors duration-300"
-        />
-      ),
-      color: "white",
-      label: "Instagram",
-      url: "https://www.instagram.com/danannme",
-    },
-    {
-      icon: (
-        <BiLogoGmail
-          size={28}
-          className="text-black group-hover:text-winered transition-colors duration-300"
-        />
-      ),
-      color: "white",
-      label: "Gmail",
-      url: "mailto:noragamiaragotoyato92@gmail.com",
-    },
-    {
-      icon: (
-        <FaWhatsapp
-          size={28}
-          className="text-black group-hover:text-winered transition-colors duration-300"
-        />
-      ),
-      color: "white",
-      label: "Whatsapp",
-      url: "https://wa.me/6285156795615",
-    },
-    {
-      icon: (
-        <FaLinkedin
-          size={28}
-          className="text-black group-hover:text-winered transition-colors duration-300"
-        />
-      ),
-      color: "white",
-      label: "Linkedin",
-      url: "https://www.linkedin.com/in/robbi-zaidan-ahmad-b0b593300/",
-    },
-  ];
-
   return (
-    <div className="relative flex flex-col border border-black/80 bg-white p-6 md:p-8 rounded-none w-80 sm:w-96 crop-marks print-proof-frame">
-      {/* Top gold design line accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gold"></div>
-
-      <h4 className="block self-center text-xl font-serif font-black uppercase tracking-widest text-black mb-4">
-        Let's Connect!
-      </h4>
-      <div className="relative flex justify-center items-center h-full">
-        <GlassIcons items={items} className="py-2 gap-8" />
-      </div>
-    </div>
+    <ul className="flex flex-col">
+      {ITEMS.map(({ icon: Icon, label, value, url }) => (
+        <li key={label} className="border-b border-hairline first:border-t">
+          <a
+            href={url}
+            target={url.startsWith("mailto:") ? undefined : "_blank"}
+            rel="noopener noreferrer"
+            className="group flex items-center gap-4 py-4 transition-colors duration-200"
+          >
+            <Icon
+              size={18}
+              aria-hidden="true"
+              className="shrink-0 text-muted transition-colors duration-200 group-hover:text-accent"
+            />
+            <span className="flex min-w-0 flex-1 flex-col">
+              <span className="text-sm font-medium text-fg">{label}</span>
+              <span className="label truncate normal-case tracking-normal">
+                {value}
+              </span>
+            </span>
+            <MdArrowOutward
+              size={16}
+              aria-hidden="true"
+              className="shrink-0 text-muted transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+            />
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }

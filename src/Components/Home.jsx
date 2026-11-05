@@ -1,104 +1,105 @@
-// 4 import di bawah ini saya gunakan agar terdapat animasi dan interaksi kecil untuk clietn, dan library ini saya dapatkan dari website reactbitz
-import TiltedCard from "../Elements/TiltedCard"; // agar gambar utama dapat bergerak menyesuaian mouse
-import CircularText from "../Elements/CircularText"; // teks yang dapat berputar untuk hiasan di gambar utama
-import BlurText from "../Elements/BlurText"; // untu teks nama saya yang akan ngeblur saat awal loasd
-import DecryptedText from "../Elements/DecryptedText"; // description singkat saya yang akan muncul dengan animasi karakter yang berubah-ubah
-
-import { Typography, Button } from "@material-tailwind/react";
-import { IoLocationOutline } from "react-icons/io5";
+import { motion, useReducedMotion } from "framer-motion";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { IoLocationOutline } from "react-icons/io5";
+
+const EASE = [0.22, 1, 0.36, 1];
 
 const Home = () => {
-  const [mobileScreen, setMobileScreen] = useState(window.innerWidth < 960);
+  const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setMobileScreen(window.innerWidth < 960);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const fade = (delay) =>
+    reduceMotion
+      ? {}
+      : {
+          initial: { opacity: 0, y: 18 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.6, delay, ease: EASE },
+        };
 
   return (
-    <div className="w-full relative overflow-hidden my-4">
-      {/* Background watermark text */}
-      <div className="absolute right-10 top-10 font-serif text-[15rem] font-black text-black/[0.015] select-none pointer-events-none leading-none">
-        RZA
-      </div>
-      <div
-        className={`home w-[95%] max-w-[1200px] mx-auto grid gap-16 lg:flex flex-row-reverse items-center relative z-1 ${
-          mobileScreen ? "" : "mx-18"
-        }`}
-      >
-        <div className="relative w-fit mx-auto mt-8 p-4 decorative-frame page-turn-hover">
-          <div className="absolute inset-2 border border-dashed border-gold/40 pointer-events-none"></div>
-          <TiltedCard
-            imageSrc="/img/IMG-20250125-WA0074.webp"
-            containerHeight={mobileScreen ? "300px" : "440px"}
-            containerWidth={mobileScreen ? "300px" : "440px"}
-            imageHeight={mobileScreen ? "300px" : "440px"}
-            imageWidth={mobileScreen ? "300px" : "440px"}
-            rotateAmplitude={8}
-            scaleOnHover={1.02}
-            showMobileWarning={false}
-            showTooltip={false}
-            displayOverlayContent={true}
-          />
-          <div
-            className={`absolute z-10 ${mobileScreen ? "top-45 right-2" : "top-75 -right-6"} bg-white/90 backdrop-blur-sm p-2 rounded-full border border-black/10`}
+    <section
+      id="home"
+      aria-labelledby="hero-title"
+      className="shell pt-28 pb-12 lg:pt-36 lg:pb-16"
+    >
+      <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-7">
+          <motion.p
+            {...fade(0)}
+            className="label label-accent mb-6 flex items-center gap-2"
           >
-            <CircularText
-              text="Front End Developer  "
-              onHover="speedUp"
-              spinDuration={20}
-              className="font-sans text-xs tracking-widest uppercase font-bold"
-            />
-          </div>
-        </div>
-        <div className="home-sub-text max-w-[600px] w-[85%] mx-auto lg:mx-0 flex flex-col justify-center">
-          <Typography
-            variant="h6"
-            className="flex gap-1 items-center font-serif text-sm italic text-winered tracking-wider mb-2"
+            <IoLocationOutline size={14} aria-hidden="true" />
+            Front-End Developer — Jawa Timur, ID
+          </motion.p>
+
+          <motion.h1
+            {...fade(0.06)}
+            id="hero-title"
+            className="max-w-[16ch] text-[clamp(2.5rem,6vw,5.5rem)] font-semibold text-fg"
           >
-            <IoLocationOutline size={18} className="text-winered" />
-            Jawa Timur, Indonesia
-          </Typography>
-          <div className="mb-4">
-            <BlurText
-              text="Hi, I’m Robbi Zaidan Ahmad"
-              delay={100}
-              animateBy="words"
-              direction="top"
-              className="text-4xl lg:text-6xl font-serif font-black text-black leading-none"
-            />
-          </div>
-          <div className="editorial-lead font-sans text-base lg:text-lg text-darkgrey leading-relaxed mb-6 border-l-4 border-winered pl-4 py-1 italic bg-beige/10">
-            {/* <DecryptedText */}
-            {/*   text={``} */}
-            {/*   animateOn="view" */}
-            {/*   revealDirection="start" */}
-            {/*   speed={25} */}
-            {/*   maxIterations={10} */}
-            {/*   sequential={true} */}
-            {/* /> */}I am a Beginner Front End Developer. Coding is not
-            difficult, it just requires precision.
-          </div>
-          <a href="#about" className="w-fit">
-            <Button
-              size="sm"
-              className="flex items-center gap-2 cursor-pointer bg-winered hover:bg-black text-white hover:text-gold border border-transparent hover:border-gold px-6 py-3 rounded-none tracking-widest text-xs font-bold transition-all duration-500 uppercase shadow-none hover:shadow-lg"
+            Robbi Zaidan Ahmad
+          </motion.h1>
+
+          <motion.p
+            {...fade(0.12)}
+            className="mt-6 max-w-[48ch] text-[clamp(1rem,1.4vw,1.125rem)] leading-relaxed text-muted"
+          >
+            Saya membangun antarmuka web yang rapi dan cepat dengan React,
+            JavaScript, dan Tailwind CSS. Menulis kode bukan soal sulit — soal
+            presisi.
+          </motion.p>
+
+          <motion.div
+            {...fade(0.18)}
+            className="mt-10 flex flex-wrap items-center gap-6"
+          >
+            <a
+              href="#portfolio"
+              className="group inline-flex min-h-[48px] items-center gap-2 bg-fg px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent"
             >
-              Discover More <MdOutlineArrowRightAlt size={20} />
-            </Button>
-          </a>
+              Lihat Karya
+              <MdOutlineArrowRightAlt
+                size={20}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </a>
+            <a
+              href="#contact"
+              className="link-underline border-b border-fg/30 pb-0.5 text-sm font-medium text-fg"
+            >
+              Hubungi Saya
+            </a>
+          </motion.div>
         </div>
+
+        <motion.div
+          {...(reduceMotion
+            ? {}
+            : {
+                initial: { opacity: 0, scale: 0.97 },
+                animate: { opacity: 1, scale: 1 },
+                transition: { duration: 0.7, delay: 0.1, ease: EASE },
+              })}
+          className="mx-auto w-full max-w-md lg:col-span-5 lg:mx-0 lg:max-w-none"
+        >
+          <div className="group relative border border-hairline bg-surface p-2">
+            <div className="overflow-hidden">
+              <img
+                src="/img/IMG-20250125-WA0074.webp"
+                alt="Robbi Zaidan Ahmad duduk di depan dinding bata"
+                width="880"
+                height="880"
+                className="aspect-square w-full object-cover grayscale transition-all duration-500 ease-out group-hover:grayscale-0 group-focus-within:grayscale-0"
+              />
+            </div>
+            <p className="label absolute -bottom-3 left-4 bg-bg px-2">
+              Foto — 2025
+            </p>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

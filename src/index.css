@@ -1,199 +1,149 @@
 @import "tailwindcss";
 
-:root {
-  --white-bg: #FFFFFF;
-  --black-text: #000000;
-  --wine-red: #800000;
-  --dark-grey: #333333;
-  --font-serif-display: "Playfair Display", serif;
-  --font-sans-body: "Lato", sans-serif;
-  --line-height-body: 1.7;
-  --page-turn-transition: all 0.5s ease-in-out;
-}
-
 @theme {
-  --color-winered: #800000;
-  --color-gold: #FFD700;
-  --color-darkgrey: #333333;
-  --color-beige: #F5F5DC;
-  
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Lato", sans-serif;
+  /* ---- Color tokens (Swiss Modernism) ---- */
+  --color-bg: #fafafa;
+  --color-fg: #09090b;
+  --color-muted: #52525b;
+  --color-hairline: #e4e4e7;
+  --color-accent: #800000;
+  --color-surface: #ffffff;
+
+  /* ---- Type ---- */
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* ---- Motion ---- */
+  --ease-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Base Styles */
-body {
-  background-color: #FAF8F5 !important;
-  background-image: 
-    /* Broadsheet vertical column grid lines */
-    linear-gradient(to right, rgba(128, 0, 0, 0.012) 1px, transparent 1px),
-    /* Horizontal notebook ruled lines */
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.008) 1px, transparent 1px),
-    /* Fine print noise / paper dot texture */
-    radial-gradient(rgba(0, 0, 0, 0.025) 0.5px, transparent 0.5px);
-  background-size: 120px 100%, 100% 32px, 16px 16px;
-  color: var(--black-text) !important;
-  font-family: var(--font-sans-body);
-  line-height: var(--line-height-body);
-  overflow-x: hidden;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
-/* Editorial Drop Cap */
-.editorial-dropcap::first-letter {
-  font-family: var(--font-serif-display);
-  font-size: 3.5rem;
-  font-weight: 900;
-  float: left;
-  line-height: 0.9;
-  padding-right: 8px;
-  color: var(--wine-red);
-}
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-/* Title Decoration styling */
-.title {
-  width: fit-content;
-  margin: 0 auto;
-  padding: 30px 0 8px;
-  position: relative;
-  font-family: var(--font-serif-display);
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--black-text);
-  text-transform: uppercase;
-}
+  /* Every anchored section clears the fixed 64px header */
+  section[id],
+  [id="home"] {
+    scroll-margin-top: 80px;
+  }
 
-/* Change highlight background from gray to editorial wine-red or gold overlay */
-.title::before {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  height: 8px;
-  transform: skew(-10deg) translateX(-50%);
-  background-color: #800000; /* Wine Red accent color */
-  opacity: 0.15;
-  z-index: -1;
-}
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
 
-/* Custom Editorial Classes */
-.magazine-cover {
-  border: 1px solid var(--black-text);
-  padding: 1.5rem;
-  background-color: var(--white-bg);
-  position: relative;
-  transition: var(--page-turn-transition);
-}
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
 
-.magazine-cover::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 1px solid #FFD700; /* Gold inner frame */
-  pointer-events: none;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
 
-.article-layout-multilayer {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-@media (min-width: 960px) {
-  .article-layout-multilayer {
-    grid-template-columns: 1.2fr 0.8fr;
+  p {
+    text-wrap: pretty;
   }
 }
 
-.decorative-frame {
-  border: 1px solid var(--black-text);
-  padding: 8px;
-  position: relative;
-  transition: var(--page-turn-transition);
+@layer components {
+  /* Shared 1280px container with fluid gutters */
+  .shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* 12-column base grid */
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Mono label: overlines, indexes, meta */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .label-accent {
+    color: var(--color-accent);
+  }
+
+  /* Section heading */
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    letter-spacing: -0.04em;
+  }
+
+  /* Hairline rule */
+  .rule {
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  /* Underline that grows from the left on hover/focus */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 240ms var(--ease-expo);
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
 }
 
-.decorative-frame::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 1px solid var(--wine-red);
-  pointer-events: none;
-}
+/* ---- Reduced motion: kill movement, keep the final readable state ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-/* Paper-effect background */
-.editorial-paper {
-  background-color: #FBFBFA;
-  background-image: radial-gradient(#F5F5DC 0.5px, transparent 0.5px), radial-gradient(#F5F5DC 0.5px, #FBFBFA 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-/* Page turn animation hover */
-.page-turn-hover {
-  transition: var(--page-turn-transition);
-}
-.page-turn-hover:hover {
-  transform: rotateY(-6deg) scale(1.02);
-  box-shadow: 10px 10px 20px rgba(128, 0, 0, 0.1);
-}
-
-/* Custom print crop marks and print borders to enrich empty spaces */
-.crop-marks {
-  position: relative;
-}
-.crop-marks::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 16px;
-  height: 16px;
-  border-top: 2px solid var(--wine-red);
-  border-left: 2px solid var(--wine-red);
-  pointer-events: none;
-  opacity: 0.7;
-}
-.crop-marks::after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 16px;
-  height: 16px;
-  border-top: 2px solid var(--wine-red);
-  border-right: 2px solid var(--wine-red);
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.print-proof-frame {
-  position: relative;
-}
-.print-proof-frame::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  border: 1px solid rgba(128, 0, 0, 0.12);
-  pointer-events: none;
-}
-.print-proof-frame::after {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
-  border: 1px dashed rgba(255, 215, 0, 0.25);
-  pointer-events: none;
-}
-
-

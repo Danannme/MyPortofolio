@@ -1,67 +1,61 @@
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-import Navbar from "./Components/Navbar.jsx"; // navbar section
-import Home from "./Components/Home.jsx"; // Home / Hero section
-import About from "./Components/About.jsx"; // About Me section
-import Skills from "./Components/Skills.jsx"; // Skills sectoin
-import Portofolio from "./Components/Portofolio.jsx"; // Project and certificate section
-import Contact from "./Components/Contact.jsx"; // Contact / Social media sectoin
-import { Footer } from "./Components/Footer.jsx"; // Footer section
-
-import "ldrs/lineWobble"; // libary untuk animasi loading yang saya gunakan untuk membuat loading page
+import Navbar from "./Components/Navbar.jsx";
+import Home from "./Components/Home.jsx";
+import About from "./Components/About.jsx";
+import Skills from "./Components/Skills.jsx";
+import Portfolio from "./Components/Portfolio.jsx";
+import Contact from "./Components/Contact.jsx";
+import { Footer } from "./Components/Footer.jsx";
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [openNav, setOpenNav] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const reduceMotion = useReducedMotion();
 
-    function navIconClicked() {
-        setOpenNav(false);
+  useEffect(() => {
+    const onLoad = () => setIsLoading(false);
+
+    if (document.readyState === "complete") {
+      setIsLoading(false);
+      return undefined;
     }
 
-    useEffect(() => {
-        if (document.readyState === "complete") {
-            setIsLoading(false);
-        } else {
-            window.addEventListener("load", () => setIsLoading(false));
-        }
-        return window.removeEventListener("load", () => setIsLoading(false));
-    }, []);
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
 
+  if (isLoading) {
     return (
-        <>
-            {isLoading == true ? ( // menampilkan loading page jika website belum selesai diload
-                <div className="grid place-items-center h-screen">
-                    <l-line-wobble
-                        size="80"
-                        stroke="5"
-                        bg-opacity="0.1"
-                        speed="1.75"
-                        color="black"
-                    ></l-line-wobble>
-                </div>
-            ) : (
-                <>
-                    <Navbar
-                        openNav={openNav}
-                        setOpenNav={setOpenNav}
-                        navIconClicked={navIconClicked}
-                    />
-
-                    <div
-                        className="body flex flex-col"
-                        onClick={openNav == true ? navIconClicked : ""}
-                    >
-                        <Home />
-                        <About />
-                        <Skills />
-                        <Portofolio />
-                        <Contact />
-                        <Footer />
-                    </div>
-                </>
-            )}
-        </>
+      <div className="flex h-screen flex-col items-center justify-center gap-4">
+        <span className="font-display text-lg font-bold tracking-[0.3em] text-fg">
+          RZA
+        </span>
+        <span className="h-px w-16 overflow-hidden bg-hairline">
+          <motion.span
+            className="block h-px w-16 bg-accent"
+            initial={reduceMotion ? false : { x: "-100%" }}
+            animate={{ x: "100%" }}
+            transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
+      </div>
     );
+  }
+
+  return (
+    <>
+      <Navbar />
+      <main className="flex flex-col">
+        <Home />
+        <About />
+        <Skills />
+        <Portfolio />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
 }
 
 export default App;

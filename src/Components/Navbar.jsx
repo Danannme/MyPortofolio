@@ -1,142 +1,141 @@
-import { useState, useEffect } from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import useActiveSection from "../hooks/useActiveSection";
 
-export default function StickyNavbar({ openNav, setOpenNav, navIconClicked }) {
+const LINKS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "portfolio", label: "Portfolio" },
+  { id: "contact", label: "Contact" },
+];
+
+const SECTION_IDS = LINKS.map((link) => link.id);
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const active = useActiveSection(SECTION_IDS);
+  const reduceMotion = useReducedMotion();
+
+  // Lock body scroll while the mobile panel is open
   useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
-  const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
-      <Typography
-        as="li"
-        variant="small"
-        color="black"
-        className="p-1 font-sans text-xs font-bold tracking-widest cursor-pointer hover:text-winered transition-colors duration-300"
-      >
-        <a href="#" className="flex items-center" onClick={navIconClicked}>
-          HOME
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="black"
-        className="p-1 font-sans text-xs font-bold tracking-widest cursor-pointer hover:text-winered transition-colors duration-300"
-      >
-        <a href="#about" className="flex items-center" onClick={navIconClicked}>
-          ABOUT
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="black"
-        className="p-1 font-sans text-xs font-bold tracking-widest cursor-pointer hover:text-winered transition-colors duration-300"
-      >
-        <a
-          href="#skills"
-          className="flex items-center"
-          onClick={navIconClicked}
-        >
-          SKILLS
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="black"
-        className="p-1 font-sans text-xs font-bold tracking-widest cursor-pointer hover:text-winered transition-colors duration-300"
-      >
-        <a
-          href="#portofolio"
-          className="flex items-center"
-          onClick={navIconClicked}
-        >
-          PORTOFOLIO
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="black"
-        className="p-1 font-sans text-xs font-bold tracking-widest cursor-pointer hover:text-winered transition-colors duration-300"
-      >
-        <a
-          href="#contact"
-          className="flex items-center"
-          onClick={navIconClicked}
-        >
-          CONTACT
-        </a>
-      </Typography>
-    </ul>
-  );
+  // Escape closes the panel
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
-    <div className="sticky top-0 max-h-[768px] w-[100%] z-10">
-      <Navbar className="border-none border-b border-gray-200 bg-white/95 backdrop-blur-md shadow-none h-max max-w-full rounded-none px-4 py-3 lg:px-12 lg:py-5 transition-all duration-300">
-        <div className="flex items-center justify-between text-black">
-          <Typography
-            as="a"
-            href="#"
-            className="mr-4 cursor-pointer py-1.5 font-serif font-black tracking-widest text-2xl hover:text-winered transition-colors duration-300 border-b-2 border-transparent hover:border-winered"
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-hairline bg-bg/85 backdrop-blur-md">
+      <div className="shell flex h-16 items-center justify-between">
+        <a
+          href="#home"
+          onClick={() => setOpen(false)}
+          className="font-display text-base font-bold tracking-[0.12em] text-fg"
+          aria-label="RZA — kembali ke atas"
+        >
+          RZA
+        </a>
+
+        <nav aria-label="Navigasi utama" className="hidden lg:block">
+          <ul className="flex items-center gap-8">
+            {LINKS.map((link) => {
+              const isActive = active === link.id;
+              return (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`label relative inline-block py-1 transition-colors duration-200 hover:text-fg ${
+                      isActive ? "text-fg" : ""
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left bg-accent transition-transform duration-200 ${
+                        isActive ? "scale-x-100" : "scale-x-0"
+                      }`}
+                    />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Tutup menu" : "Buka menu"}
+          className="flex h-11 w-11 items-center justify-center text-fg lg:hidden"
+        >
+          <span className="relative block h-4 w-6" aria-hidden="true">
+            <span
+              className={`absolute left-0 block h-px w-6 bg-current transition-transform duration-300 ${
+                open ? "top-2 rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-2 block h-px w-6 bg-current transition-opacity duration-200 ${
+                open ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute left-0 block h-px w-6 bg-current transition-transform duration-300 ${
+                open ? "top-2 -rotate-45" : "top-4"
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-nav"
+            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            className="border-t border-hairline bg-bg lg:hidden"
           >
-            RZA
-          </Typography>{" "}
-          <div className="flex items-center gap-4">
-            {" "}
-            <div className="mr-4 hidden lg:block">{navList}</div>
-            <IconButton
-              variant="text"
-              className="ml-auto h-6 w-6 text-inherit cursor-pointer hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-              ripple={false}
-              onClick={() => setOpenNav(!openNav)}
-            >
-              {openNav ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  className="h-6 w-6 stroke-black"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 stroke-black"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </IconButton>
-          </div>
-        </div>
-        <MobileNav open={openNav} className="bg-white/95 backdrop-blur-md px-2 py-4 border-t border-gray-100 lg:hidden">
-          {navList}
-        </MobileNav>
-      </Navbar>
-    </div>
+            <nav aria-label="Navigasi seluler" className="shell py-4">
+              <ul className="flex flex-col">
+                {LINKS.map((link, index) => (
+                  <li
+                    key={link.id}
+                    className="border-b border-hairline last:border-0"
+                  >
+                    <a
+                      href={`#${link.id}`}
+                      onClick={() => setOpen(false)}
+                      className="flex min-h-[56px] items-center justify-between text-lg font-medium text-fg"
+                    >
+                      {link.label}
+                      <span aria-hidden="true" className="label">
+                        0{index + 1}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }
